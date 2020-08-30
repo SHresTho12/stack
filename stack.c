@@ -25,7 +25,7 @@ struct linkedlist {
  */
 struct linkedlist *push(struct linkedlist *start,int n); //
 
-void trevarse(struct linkedlist *start);
+void traverse(struct linkedlist *start);
 
 
 int main(){
@@ -36,16 +36,14 @@ int main(){
         for (;;)
         {
            printf("Insert the command TO modify the stack: \n"); //Asking users to Enter the command
-            scanf("%c", &code);     int n;
-            while (getchar() != '\n')   /* skips to end of line */
-                ;
+            scanf(" %c", &code);     int n;
             switch (code)
             {
 //                case 'i': insert();
 //                break;
 //                case 's': search();
 //                break;
-                case 't': trevarse(first);
+                case 't': traverse(first);
                 break;
                 case 'p':
                
@@ -78,15 +76,15 @@ struct linkedlist *push(struct linkedlist *start,int n){
 }
 
 
-void trevarse(struct linkedlist *start){
+void traverse(struct linkedlist *start){
     if(start==NULL){
         printf("The stack is Empty Nothing to print");
-        exit(EXIT_FAILURE);
+        
     }
     int i = 1;
-    for(start ; start!=NULL; start = start->next )
+    for( ; start!=NULL; start = start->next )
     {
-        printf("The value of the %d th node is %d", i ,start->value);
+        printf("The value of the %d th node is: %d \n", i ,start->value);
         i++;
     }
 }
