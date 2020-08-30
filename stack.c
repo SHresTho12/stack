@@ -11,10 +11,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-//node model of the linkdlist . Every node of the stack looks like this
-struct linkdlist {
+//node model of the linkedlist . Every node of the stack looks like this
+struct linkedlist {
     int value;
-    struct linkdlist *next;;
+    struct linkedlist *next;;
 }stacknode;
 
 
@@ -23,19 +23,20 @@ struct linkdlist {
 /*
  Prototypes of all functions
  */
-struct linkdlist *push(struct linkdlist *start); //
+struct linkedlist *push(struct linkedlist *start,int n); //
 
+void trevarse(struct linkedlist *start);
 
 
 int main(){
     
     char code;
-//    struct linkdlist *stack; // Initializing the first node pointer
-    struct linkdlist *first = NULL; //structure pointer to keep track of the begining of the stack
+//    struct linkedlist *stack; // Initializing the first node pointer
+    struct linkedlist *first = NULL; //structure pointer to keep track of the begining of the stack
         for (;;)
         {
            printf("Insert the command TO modify the stack: \n"); //Asking users to Enter the command
-            scanf("%c", &code);
+            scanf("%c", &code);     int n;
             while (getchar() != '\n')   /* skips to end of line */
                 ;
             switch (code)
@@ -44,9 +45,14 @@ int main(){
 //                break;
 //                case 's': search();
 //                break;
-                case 't': ;
+                case 't': trevarse(first);
                 break;
-                case 'p': first = push(first);
+                case 'p':
+               
+                    printf("Enter the value of the new node: \n");
+                       scanf("%d",&n);
+                    first = push(first,n);
+                    
                 break;
                 case 'q': return 0;
                 default:  printf("Illegal code\n");
@@ -58,16 +64,29 @@ int main(){
     
 }
 //the push function. This function adds a new node at the starting of the stack
-struct linkdlist *push(struct linkdlist *start){
-    struct linkdlist *newnode;
-    int n;
+struct linkedlist *push(struct linkedlist *start,int n){
+    struct linkedlist *newnode;
+ 
     newnode = malloc(sizeof(stacknode));
-    if ( {
-        <#statements#>
+    if (newnode==NULL){
+        printf("The allocated memory is invalid\n");
+        exit(EXIT_FAILURE);
     }
     newnode -> next = start;
-    printf("Enter the value of the new node: /n");
-    scanf("%d",&n);
     newnode -> value = n;
     return newnode;
+}
+
+
+void trevarse(struct linkedlist *start){
+    if(start==NULL){
+        printf("The stack is Empty Nothing to print");
+        exit(EXIT_FAILURE);
+    }
+    int i = 1;
+    for(start ; start!=NULL; start = start->next )
+    {
+        printf("The value of the %d th node is %d", i ,start->value);
+        i++;
+    }
 }
