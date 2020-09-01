@@ -67,9 +67,9 @@ void push(Queue ** queueRef, int n);
 /*
  *DEqueues a value from the queue and updates the pointyer pointing to the head pf the queue
  *
- *@prama pointer to the head of the queue
+ * @param pointer to the head of the queue
  
- *@see returntype is a pointer to struct node
+ * @see returntype is a pointer to struct node
  
  */
 Queue * pop(Queue * queue);
@@ -77,7 +77,7 @@ Queue * pop(Queue * queue);
 
 /**
   *Prints all values sequentially iof the queue
-  *@parma pointer to the head of the queue
+  *@param pointer to the head of the queue
  
   *returns void .
  */
@@ -322,15 +322,15 @@ void top(Queue * queue) {
 
 void printHelp() {
     printf("================= The command List ================ \n \
-           --> *Size related commands*\n \
-           e = Checks if the qeue is empty or not\n \
-           s = Shows the size of the qeue or the number of the nodes\n \
+           --> *Status related commands*\n \
+           e = Checks if the queue is empty or not\n \
+           s = Shows the size of the queue or the number of the nodes\n \
            --> **Accessing Commands** \n \
            f = Shows the value stored in the queue node\n \
            t = traverses through the whole qeue and prints values of the each \n \
            --> ***Modification commands***\n \
            p = Asks you to enter a value and adds the value in the front of the qeue\n \
-           d = Deletes the queue element of the qeue\n \
+           d = Deletes the first element of the queue\n \
            q = Ending command\n \
            h = help\n");
 }

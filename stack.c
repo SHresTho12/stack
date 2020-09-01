@@ -338,15 +338,15 @@ void top(Queue * queue) {
 
 void printHelp() {
     printf("================= The command List ================ \n \
-           --> *Size related commands*\n \
-           e = Checks if the qeue is empty or not\n \
-           s = Shows the size of the qeue or the number of the nodes\n \
+           --> *Status related commands*\n \
+           e = Checks if the queue is empty or not\n \
+           s = Shows the size of the queue or the number of the nodes\n \
            --> **Accessing Commands** \n \
            f = Shows the value stored in the queue node\n \
-           t = traverses through the whole qeue and prints values of the each \n \
+           t = traverses through the whole queue and prints values of the each \n \
            --> ***Modification commands***\n \
-           p = Asks you to enter a value and adds the value in the front of the qeue\n \
-           d = Deletes the queue element of the qeue\n \
+           p = Asks you to enter a value and adds the value in the front of the queue\n \
+           d = Deletes the frist element of the queue\n \
            q = Ending command\n \
            h = help\n");
 }
