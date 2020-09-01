@@ -92,7 +92,7 @@ void trevarse(Queue * queue);
  ** void function ,no parameter needed
  */
 void printHelp(void);
-
+void EndMessage(void);
 
 /**
   *Frees up all memory
@@ -177,6 +177,7 @@ int main() {
 
         case 'q':
             del(queue);
+            EndMessage();
             return 0;
         case 'h':
             printHelp();
@@ -333,4 +334,8 @@ void printHelp() {
            d = Deletes the first element of the queue\n \
            q = Ending command\n \
            h = help\n");
+}
+
+void EndMessage(void) {
+    printf(" Thank you Sir for being one of the best teachers. Hope we will learn from you again. Sorry sir If have ever misbehaved or done anything inappropriate \n");
 }

@@ -19,7 +19,7 @@
 //node model of the linkedlist . Every node of the qeue looks like this
 struct stack{
     int value;
-    struct linkedlist * next;
+    struct stack * next;
 };
 
 typedef struct stack Queue;
@@ -57,7 +57,8 @@ void top(Queue * queue); //
  * Adds New node at the starting of the stack
  * @param queue the pointer to the start of the stack
  * @return pointer to the staRT OF the stack
-Queue * push(struct linkedlist * queue, int n);
+ * */
+Queue * push(Queue * queue, int n);
 
 /*
  *DEqueues a value from the queue and updates the pointyer pointing to the head pf the queue
@@ -87,7 +88,7 @@ void trevarse(Queue * queue);
  ** return type void
  */
 void printHelp(void);
-
+void EndMessage(void);
 
 /**
   *Frees up all memory
@@ -165,7 +166,7 @@ int main() {
         case 'p':
             printf("Enter the value of the new node: \n");
             scanf("%d", & value); //takes input the value you want to add
-            push(&queue, value);
+            queue = push(queue, value);
             break;
 
         case 'd':
@@ -174,6 +175,7 @@ int main() {
 
         case 'q':
             del(queue);
+            EndMessage();
             return 0;
         case 'h':
             printHelp();
@@ -223,39 +225,6 @@ int size(Queue * queue) {
     return number_of_nodes; // returns the number of the nodes
 }
 
-///<======================================= Status Checking functions ========================================>
-/*
- ========== This function shows if the function is empty or not ============
-
-  --> 1 means  the function has 1 or more elements
- ---> 0 means the function has no nodes
- */
-bool empty(Queue * queue) {
-   
-    // checks if the starting pointer is null or not if it is null if means there is no element in the qeue
-    
-    if (queue != NULL) return 1;
-    else return 0;
-}
-
-/* ====== This function shows the size of the queue =====
- * returns the number of the nodes there are in the queue
- ** Takes the pointer to the d=queue element as the parameter
- */
-int size(Queue * queue) {
-    // checks if the starting pointer is null or not if it is null if means there is no element in the qeue. Shows the warning message
-    if (queue == NULL) {
-        printf("There is no element in the qeue so the size is 0  \n");
-        return 0;
-    }
-    //variable to store the the number of the nodes there are in the qeue
-    int number_of_nodes = 0;
-
-    // loop for counting available nodes. Loops countinue untill it faces null
-    for (; queue != NULL; queue = queue -> next) number_of_nodes++;
-
-    return number_of_nodes; // returns the number of the nodes
-}
 
 
 //=========================================== Modification Functions=======================================
@@ -349,4 +318,9 @@ void printHelp() {
            d = Deletes the frist element of the queue\n \
            q = Ending command\n \
            h = help\n");
+}
+
+
+void EndMessage(void) {
+    printf(" Thank you Sir for being one of the best teachers. Hope we will learn from you again.Sorry If have ever misbehaved or done anything inappropriate \n");
 }
